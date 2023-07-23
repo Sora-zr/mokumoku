@@ -57,6 +57,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def user_profile
+    @user = User.find(params[:id])
+  end
+
   private
 
   def event_params

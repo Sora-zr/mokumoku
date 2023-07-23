@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   resources :users, only: %i[new create]
   resources :events do
+    get 'user_profile', on: :member
     collection do
       get :future
       get :past
