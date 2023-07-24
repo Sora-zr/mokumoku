@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-12">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h1>ユーザー情報</h1>
+          <hr class="my-3">
+
+          <div class="mb-3 float-end">
+            <% if @user.is_followed_by?(current_user) %>
+              <%= link_to user_relationships_path(@user), method: :delete do %>
+                <button class="btn btn-danger">フォローを外す</button>
+              <% end %>
+            <% else %>
+              <%= link_to user_relationships_path(@user), method: :post do %>
+                <button class="btn btn-primary">フォローする</button>
+              <% end %>
+            <% end %>
+          </div>
+          <h2>＜名前＞</h2>
+          <h3 class="mb-5"><%= @user.name %></h3>
+
+
+          <h2>＜趣味＞</h2>
+          <h3 class="mb-5"><%= @user.hobby %></h3>
+
+          <h2>＜プロフィール＞</h2>
+          <h3><%= simple_format(@user.profile) %></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
